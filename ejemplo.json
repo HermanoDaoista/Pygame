@@ -29,15 +29,16 @@
         "puntuacion": 175
     },
     {
+        "usuario": "pepe",
+        "puntuacion": 100,
+        "fecha": "28/11/2024"
+    },
+    {
         "usuario": "sdsdds",
         "puntuacion": 75
     },
     {
         "usuario": "loiu",
         "puntuacion": 75
-    },
-    {
-        "usuario": "kamus",
-        "puntuacion": 70
     }
 ]

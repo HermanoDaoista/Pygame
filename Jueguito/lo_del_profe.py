@@ -266,7 +266,10 @@ def guardar_ranking(archivo:json, ranking:dict):
 
 
 def actualizar_ranking(ranking:dict, usuario:dict, puntuacion:dict,fecha:str)->dict:
-    """esta funcion resulve la logica de ordenar el diccionario 
+    """esta funcion resuelve la logica de ordenar el diccionario, luego comrpueba
+    si 'puntuacion' es mayor que el menor en la lista, si es asi lo agrega.Tambien lo agrega si el
+    len de mi dict es menor a 10, verifica que nombre no exista, si existe y puntuacion es mayor
+    lo sobreescribe. Vuelve a ordenar, hace un slicing  desde el indice 0 hasta el 10(que no lo incluye)
 
     Args:
         ranking (dict): _description_
@@ -299,30 +302,58 @@ def actualizar_ranking(ranking:dict, usuario:dict, puntuacion:dict,fecha:str)->d
     return ranking[:10]
 
 def pausar_musica():
+    """estas funciones de una sola linea tienen la funcion de hacerme capas de manipular el volumen
+    general desde cualquier modelo que quiera
+    """
     pygame.mixer.music.pause()
 
 def desmutear_musica():
+    """estas funciones de una sola linea tienen la funcion de hacerme capas de manipular el volumen
+    general desde cualquier modelo que quiera
+    """
     pygame.mixer.music.unpause()
 
 def mutear_musica():
+    """estas funciones de una sola linea tienen la funcion de hacerme capas de manipular el volumen
+    general desde cualquier modelo que quiera
+    """
     pygame.mixer.music.set_volume(0)
 
 def restaurar_volumen(volumen):
+    """estas funciones de una sola linea tienen la funcion de hacerme capas de manipular el volumen
+    general desde cualquier modelo que quiera
+    """
     pygame.mixer.music.set_volume(volumen)
 
 def cargar_musica(pista:str,volumen_real:float):
+    """carga la musica desde una pista especificada y la setea un volumen
+
+    Args:
+        pista (str): _description_
+        volumen_real (float): _description_
+    """
     pygame.mixer.music.load(pista)
     pygame.mixer.music.set_volume(volumen_real)
     pygame.mixer.music.play(-1)    
    
 
 def subir_volumen(datos_del_juego:dict):
+    """sube el volumen del juego
+
+    Args:
+        datos_del_juego (dict): _description_
+    """
     if datos_del_juego['volumen_musica'] < 100:
         SONIDO_PLOC.play()
         datos_del_juego['volumen_musica'] += 5
     else:
         SONIDO_ERROR.play() 
 def restar_volumen(datos_del_juego:dict):
+    """resta volumen al juego
+
+    Args:
+        datos_del_juego (dict): _description_
+    """
     if datos_del_juego['volumen_musica'] < 100:
         SONIDO_PLOC.play()
         datos_del_juego['volumen_musica'] -= 5
